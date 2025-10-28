@@ -27,6 +27,20 @@
   display: block;
 }
 
+/* emoji styling when emoji skin is active */
+.bird.emoji {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bird-emoji {
+  font-size: 72px;
+  line-height: 1;
+  user-select: none;
+}
+
 .pipes {
   position: absolute;
   display: flex;

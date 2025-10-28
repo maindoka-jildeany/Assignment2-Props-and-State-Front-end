@@ -2,24 +2,33 @@ interface BirdProps {
   position: number;
   rotation: number;
   isJumping: boolean;
-  normalSrc: string;
-  jumpSrc: string;
+  // image sources (optional when using emoji skin)
+  normalSrc?: string;
+  jumpSrc?: string;
+  // when true, render emoji instead of image
+  useEmoji?: boolean;
 }
 
-const Bird = ({ position, rotation, isJumping, normalSrc, jumpSrc }: BirdProps) => {
+const Bird = ({ position, rotation, isJumping, normalSrc, jumpSrc, useEmoji }: BirdProps) => {
   return (
     <div
-      className="bird"
+      className={"bird" + (useEmoji ? " emoji" : "")}
       style={{
         top: `${position}px`,
         transform: `rotate(${rotation}deg)`,
       }}
     >
-      <img
-        src={isJumping ? jumpSrc : normalSrc}
-        alt="bird-skin"
-        className="bird-image"
-      />
+      {useEmoji ? (
+        <span className="bird-emoji" aria-hidden>
+          {isJumping ? '😆' : '☺️'}
+        </span>
+      ) : (
+        <img
+          src={isJumping ? jumpSrc : normalSrc}
+          alt="bird-skin"
+          className="bird-image"
+        />
+      )}
     </div>
   );
 };

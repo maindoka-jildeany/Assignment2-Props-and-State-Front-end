@@ -24,7 +24,7 @@ const Game = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
-  const [selectedSkin, setSelectedSkin] = useState<'wili' | 'jesa'>('wili');
+  const [selectedSkin, setSelectedSkin] = useState<'wili' | 'jesa' | 'emoji'>('emoji');
 
   const jump = useCallback(() => {
     if (!gameOver) {
@@ -147,10 +147,12 @@ const Game = () => {
         <select
           id="skin-select"
           value={selectedSkin}
-          onChange={(e) => setSelectedSkin(e.target.value as 'wili' | 'jesa')}
+          onChange={(e) => setSelectedSkin(e.target.value as 'emoji'| 'wili' | 'jesa' )}
         >
+          <option value="emoji">Emoji</option>
           <option value="wili">Wili</option>
           <option value="jesa">Jesa</option>
+
         </select>
       </div>
 
@@ -160,6 +162,7 @@ const Game = () => {
         isJumping={isJumping}
         normalSrc={selectedSkin === 'jesa' ? jesaNormal : wiliNormal}
         jumpSrc={selectedSkin === 'jesa' ? jesaJump : wiliJump}
+        useEmoji={selectedSkin === 'emoji'}
       />
       {pipes.map((pipe) => (
         <Pipes
