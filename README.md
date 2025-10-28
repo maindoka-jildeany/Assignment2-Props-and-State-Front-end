@@ -65,4 +65,3 @@ npm run dev
 Jika Anda ingin saya menambahkan penyimpanan preferensi skin, atau menjalankan dev server dan melaporkan hasilnya, beri tahu saya dan saya akan jalankan di terminal proyek Anda.
 
 ---
-Generated for: tugas Props-and-State (Assignment 2)
